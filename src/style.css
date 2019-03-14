@@ -1,0 +1,255 @@
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+  outline: none;
+  border-color: #cccccc;
+  color: black;
+  background-color: transparent;
+}
+
+.category-pic-container {
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+  .category-pic, .category-text {
+    position: absolute;
+    left: 34%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+
+  .category-text {
+    padding-top: 60px;
+    font-size: 150%;
+  }
+
+  .category-pic {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .category-pic:hover {
+    opacity: 0;
+    cursor: pointer;
+  }
+
+.product-container {
+  margin: 0 auto;
+}
+
+  .product-img {
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
+  }
+
+  .product-text {
+    text-align: center;
+  }
+  
+  .product-qt {
+    width: 22%;
+  }
+
+#cart-icon {
+  position: fixed;
+  right: 0rem; 
+  padding: 0rem;
+  font-size: 2rem;
+}
+  
+#cart-toggle {
+  display: none;
+}
+  
+#cart-toggle:checked ~ #cart-icon, #cart-toggle:checked ~ #cart {
+  transform: translateX(-26rem);
+}
+
+#cart-icon, #cart {
+  transition: transform 0.5s;
+}
+  
+#cart {
+  display: block;
+  position: fixed;
+  right: -26rem;
+  border: 2px solid gray;
+  border-radius: 20px 0px 0px 0px;
+  width: 26rem;
+  height: 100vh;
+  min-height: 100vh;
+  flex-direction: column;
+}
+  
+  #cart-header {
+    background-color: #85d84e7d;
+    border-radius: 13px 0px 0px 0px; 
+    padding-bottom: 2%;
+    margin-bottom: 0;
+  }
+   
+  #cart-content {
+    overflow-y: scroll;
+    height: calc(100% - 124px);
+    background-color: white;
+  }
+    
+  #checkout-container {
+    /* margin-bottom: 4%; */
+    padding: 0px 10px 10px 10px;
+    background-color: #85d84e7d;
+  }
+  
+  #checkout-confirm {
+    transition: all 0.5s linear
+  }
+    
+  #checkout-confirm:focus {
+    box-shadow: 0 0;
+  }
+    
+  #checkout-confirm:hover {
+    background-color: white;
+    color: black;
+    transition: all 0.5s linear
+  }
+
+#sort-text {
+  text-align: center;
+}
+
+  .radio-toolbar input[type="radio"] {
+    display: none;
+  }
+
+  .radio-toolbar label {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 7px 10px;
+    font-family: Arial;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .radio-toolbar input[type="radio"]:checked+label {
+    background-color: #13b913;
+    color: white;
+  }
+
+  .radio-cover {
+    border-radius: 20px;  
+  }
+
+
+.col-form-label-lg {
+  font-size: 2.5rem;
+}
+
+.no-marg {
+  margin: 0px;
+}
+
+.badge {
+  padding: 1px 3px;
+  color:black;
+  margin-left:7px;
+  background-color: #ddd;
+}
+
+#test {
+  height: 2000px;
+  background-color: black;
+  margin: 0px;
+  color: white;
+  text-align: center;
+}
+
+#category-shorthand {
+  color: green;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  padding-left: 0px;
+}
+
+  .list-group-item {
+    cursor: pointer;
+    color: green;
+  }
+
+  .list-group-item:hover {
+    background-color: #efefef;
+  }
+
+  .list-group-item:active {
+    background-color: #dadada;
+  }
+
+#searchbar {
+  border-color: #038303;
+}
+
+#category-btn {
+  border-radius: 20px;
+  background-color: #ddd;
+  cursor: default;
+}
+
+#category-btn:hover .badge {
+  cursor: pointer;
+}
+
+.displayed-food:hover {
+  background-color: #f0fff0;
+}
+
+.displayed-food:hover .product-add-btn {
+  display: inline-block;
+}
+
+.product-add-btn {
+  display: none;
+}
+
+#category-side {
+  border: none;
+}
+
+#category-side h3 {
+  color: green;
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+#icon {
+  height: 8rem;
+  width: 9rem;
+}
+
+#header-text h1, #header-text h5 {
+  text-align: center;
+}
+
+#filter-container {
+  background-color: #f0fff0;
+}
+
+div .cart-item-thumb {
+  height: 80px;
+  width: 80px;
+}
