@@ -60,6 +60,24 @@ module.exports = {
             presets: ['@babel/preset-env', "@babel/preset-react"]
           }
         }
+      },
+      {
+        test: /\.(sass)$/,
+        use: [{
+          loader: 'style-loader',
+        }, {
+          loader: 'postcss-loader',
+          options: {
+            plugins: function() {
+              return [
+                require('precss'),
+                require('autoprefixer')
+              ];
+            }
+          }
+        }, {
+          loader: 'sass-loader'
+        }]
       }
     ]
   }

@@ -1,12 +1,11 @@
 import _ from 'lodash';
-import './style.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.sass';
+import 'bootstrap';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import apple from './assets/apple.jpg';
 import banana from './assets/banana.jpg';
 import bakery from './assets/bakery.jpg';
-import banner from './assets/banner.jpg';
 import bread from './assets/bread.jpeg';
 import broccoli from './assets/broccoli.png';
 import cake from './assets/cake.jpg';
@@ -53,7 +52,7 @@ const entries = [
   {
      name: 'banana',
      price: 1.2,
-     description: 'Banana, banana, banana, banana, banana, banana',
+     description: 'Knock knock. who\'s there? Banana. Banana who? Knock knock. who\'s there? Banana. Banana who?',
      category: 'Produce',
      src: banana,
      quantity: '',
@@ -425,7 +424,7 @@ class App extends React.Component {
         <div>
           <h3 id='cart-header' className='text-center'>Shopping Cart</h3>
         </div>
-        <div id='cart-content' className='container-fluid'>
+        <div id='cart-content'>
           <Cart cart={this.state.cart} updateQuantity={this.updateQuantity}/>
         </div>
         <div>
@@ -467,7 +466,7 @@ class App extends React.Component {
       </div>
       <div className="d-flex">
       <div className='d-flex justify-content-center w-25' style={{visibility: (this.state.categoryClicked || (this.state.search != '')) ? 'visible' : 'hidden'}}>
-          <div id="category-side" className='card mt-5' onClick={this.updateCategoryClicked}>
+          <div id="category-side-container" className='card mt-5' onClick={this.updateCategoryClicked}>
             <h3 className='card-header'>Categories</h3>
             <ul className='list-group'>
               <li className='list-group-item' data-category='Produce'>Produce</li>
@@ -480,7 +479,7 @@ class App extends React.Component {
           </div>
         </div>
         {this.state.categoryClicked || (this.state.search != '') ? 
-          <div className='row product-container mt-5 w-50'>
+          <div className='row mt-5 w-50'>
             <FilteredStocks className='col-10' entries={this.state.entries} category={this.state.category} search={this.state.search} sortBy={this.state.sortBy} addItemToCart={this.addItemToCart} updateQuantity={this.updateQuantity} toggleDescription={this.toggleDescription}/>
           </div>
           : 
@@ -516,7 +515,7 @@ const CartItem = (props) => {
   }
 
   return (
-    <div className='row no-marg ' style={{backgroundColor: color}}>
+    <div className='row no-marg cart-item-container' style={{backgroundColor: color}}>
       <div className='col align-self-center'>
         <img src={props.entry.src} className='img-thumbnail cart-item-thumb'/>
       </div>
@@ -542,8 +541,8 @@ const FilteredStock = (props) => {
   const name = props.entry.name.charAt(0).toUpperCase() + props.entry.name.slice(1);
 
   return (
-    <div className='card align-items-center col-3 displayed-food'> 
-      <button className='product-img mt-2' data-toggle='collapse' data-target={"#collapseExample" + props.index} aria-expanded="false" aria-controls={"#collapseExample" + props.index}></button>
+    <div className='card align-items-center col-3 product-container'> 
+      <img className='product-img mt-2' data-toggle='collapse' data-target={"#collapseExample" + props.index} aria-expanded="false" aria-controls={"#collapseExample" + props.index} src={props.entry.src}/>
       <div className="collapse" id={"collapseExample" + props.index}>
         <small className="form-text text-muted">{props.entry.description}</small>
       </div>
@@ -551,7 +550,7 @@ const FilteredStock = (props) => {
         <h5 className='product-text'>{name}</h5>
         <p className='product-text'>${props.entry.price.toFixed(2)} {props.entry.unit}</p>
         <div>
-          <input className='product-qt form-control' onChange={props.updateQuantity} data-index={props.index} data-name={props.entry.name} type='number' placeholder='qt.' value={props.entry.quantity}/>
+          <input className='form-control' onChange={props.updateQuantity} data-index={props.index} data-name={props.entry.name} type='number' placeholder='qt.' value={props.entry.quantity}/>
           <button type='button' className='product-add-btn btn btn-success btn-block mt-1' onClick={props.addItemToCart} data-index={props.index} data-key={props.entry.name}>Add</button>
         </div>
       </div>

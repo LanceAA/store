@@ -1,0 +1,204 @@
+@import "node_modules/bootstrap/scss/bootstrap"
+
+%category-icon-position
+  position: absolute
+  left: 2rem
+  width: 150px
+  height: 150px
+  border-radius: 50%
+
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus 
+  color: black
+  background-color: transparent
+  outline: none
+  box-shadow: inset 0 -1px 0 #ddd
+  border-color: #cccccc
+
+// Beginning of cart 
+#cart-icon
+  position: fixed
+  cursor: pointer
+  transition: transform 0.5s
+  right: 0rem
+  padding: 0rem
+  font-size: 2rem
+  
+#cart-toggle
+  display: none
+  &:checked
+    ~ #cart-icon
+      transform: translateX(-26rem)
+    ~ #cart
+      transform: translateX(-26rem)
+
+#cart
+  display: block
+  position: fixed
+  flex-direction: column
+  background-color: white
+  transition: transform 0.5s
+  right: -26rem
+  border: 2px solid gray
+  border-radius: 20px 0px 0px 0px
+  width: 26rem
+  height: 100vh
+  min-height: 100vh
+  
+#cart-header
+  background-color: #85d84e7d
+  border-radius: 13px 0px 0px 0px
+  padding-bottom: 2%
+  margin-bottom: 0
+   
+#cart-content
+  overflow-y: scroll
+  height: calc(100% - 124px)
+  background-color: white
+
+.cart-item-container
+  border-top: 1px solid rgba(255, 215, 255, 0.4)
+  border-bottom: 1px solid rgba(255, 215, 255, 0.4)
+
+div 
+  .cart-item-thumb
+    height: 80px
+    width: 80px
+  
+#checkout-container
+  padding: 0px 10px 10px 10px
+  background-color: #85d84e7d
+  
+  #checkout-confirm
+    transition: all 0.5s linear
+    &:focus
+     box-shadow: 0 0
+    &:hover
+      background-color: white
+      color: black
+      transition: all 0.5s linear
+// End of cart
+
+
+//Header and search bar begin
+#icon
+  height: 8rem
+  width: 9rem
+
+#header-text h1, #header-text h5
+  text-align: center
+
+#searchbar
+  border-color: #038303
+//Header and search bar end
+
+
+//catgory and sort begin
+#filter-container
+  background-color: #f0fff0
+
+#category-btn
+  border-radius: 20px
+  background-color: #ddd
+  cursor: default
+  &:hover
+    .badge
+      cursor: pointer
+
+#sort-text 
+  text-align: center
+
+.radio-toolbar 
+  input[type="radio"]
+    display: none
+    &:checked
+      + label
+        background-color: #13b913
+        color: white
+  label
+    display: inline-block
+    background-color: #ddd
+    padding: 7px 10px
+    font-family: Arial
+    font-size: 16px
+    cursor: pointer
+
+.radio-cover
+  border-radius: 20px
+
+.badge
+  padding: 1px 3px
+  color: black
+  margin-left: 7px
+  background-color: #ddd
+//category and sort end
+
+
+//category icon begin
+.category-pic-container
+  text-align: center
+  width: 150px
+  height: 150px
+  border-radius: 50%
+
+.category-text
+  @extend %category-icon-position
+  padding-top: 60px
+  font-size: 150%
+
+.category-pic
+  @extend %category-icon-position
+  transition: opacity 0.3s ease-in-out
+  &:hover
+    cursor: pointer
+    opacity: 0
+//category icon end
+
+
+//product begin
+.product-container:hover
+  background-color: #f0fff0
+
+.product-img
+  cursor: pointer
+  height: 150px
+  width: 150px
+
+.product-text
+  text-align: center
+//product end
+
+
+//category side begin
+#category-side-container
+  border: none
+  h3
+    color: green
+    border: 1px solid rgba(0,0,0,.125)
+
+ul
+  list-style-type: none
+  text-align: center
+  padding-left: 0px
+
+.list-group-item
+  cursor: pointer
+  color: green
+  &:hover
+    background-color: #efefef
+  &:active
+    background-color: #dadada
+//category side end
+
+.no-marg
+  margin: 0px
