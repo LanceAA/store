@@ -417,15 +417,15 @@ class App extends React.Component {
   render() {
     console.log(this.state);
     return (
-    <div>
-      <input id='cart-toggle' type='checkbox'/>
-      <label id='cart-icon' htmlFor='cart-toggle'>🛒</label>
-      <div id='cart'>
-        <div>
-          <h3 id='cart-header' className='text-center'>Shopping Cart</h3>
-        </div>
+      <div>
+        <input id='cart-toggle' type='checkbox' />
+        <label id='cart-icon' htmlFor='cart-toggle'>🛒</label>
+        <div id='cart'>
+          <div>
+            <h3 id='cart-header' className='text-center'>Shopping Cart</h3>
+          </div>
         <div id='cart-content'>
-          <Cart cart={this.state.cart} updateQuantity={this.updateQuantity}/>
+          <Cart cart={this.state.cart} updateQuantity={this.updateQuantity} />
         </div>
         <div>
           <div id='checkout-container'>
@@ -458,14 +458,17 @@ class App extends React.Component {
         <div>
           <h4 id='sort-text'>Sort by:</h4>
           <div onClick={this.updateSortBy} className="radio-toolbar mt-3">
-            <input id="radio1" type="radio" name="radios"/><label className='mr-2 radio-cover' htmlFor="radio1">None</label>
-            <input id="radio2" type="radio" name="radios"/><label className='mr-2 radio-cover' htmlFor="radio2">Price:Low-High</label>
-            <input id="radio3" type="radio" name="radios"/><label className='mr-2 radio-cover' htmlFor="radio3">Price:High-Low</label>
+            <input id="radio1" type="radio" name="radios" />
+            <label className='mr-2 radio-cover' htmlFor="radio1">None</label>
+            <input id="radio2" type="radio" name="radios" />
+            <label className='mr-2 radio-cover' htmlFor="radio2">Price:Low-High</label>
+            <input id="radio3" type="radio" name="radios"/>
+            <label className='mr-2 radio-cover' htmlFor="radio3">Price:High-Low</label>
           </div>
         </div>
       </div>
       <div className="d-flex">
-      <div className='d-flex justify-content-center w-25' style={{visibility: (this.state.categoryClicked || (this.state.search != '')) ? 'visible' : 'hidden'}}>
+        <div className='d-flex justify-content-center w-25' style={{visibility: (this.state.categoryClicked || (this.state.search != '')) ? 'visible' : 'hidden'}}>
           <div id="category-side-container" className='card mt-5' onClick={this.updateCategoryClicked}>
             <h3 className='card-header'>Categories</h3>
             <ul className='list-group'>
@@ -478,12 +481,12 @@ class App extends React.Component {
             </ul>
           </div>
         </div>
-        {this.state.categoryClicked || (this.state.search != '') ? 
-          <div className='row mt-5 w-50'>
-            <FilteredStocks className='col-10' entries={this.state.entries} category={this.state.category} search={this.state.search} sortBy={this.state.sortBy} addItemToCart={this.addItemToCart} updateQuantity={this.updateQuantity} toggleDescription={this.toggleDescription}/>
-          </div>
-          : 
-          <Categories changeCategory={this.updateCategoryClicked}/>}
+        {this.state.categoryClicked || (this.state.search != '') ?
+        <div className='row mt-5 w-50'>
+          <FilteredStocks className='col-10' entries={this.state.entries} category={this.state.category} search={this.state.search} sortBy={this.state.sortBy} addItemToCart={this.addItemToCart} updateQuantity={this.updateQuantity} toggleDescription={this.toggleDescription} />
+        </div>
+        :
+        <Categories changeCategory={this.updateCategoryClicked} />}
       </div>
     </div>
   )}
